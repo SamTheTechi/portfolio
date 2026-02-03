@@ -1,0 +1,189 @@
+/* style.css - 90s Terminal Theme with Boot Sequence and Glitch Effects */
+
+/* --- Keyframe Animations --- */
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 12ch } /* "Sameer Gupta" is 12 characters */
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00ff41; }
+}
+
+@keyframes screen-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes boot-fade-in {
+    to { opacity: 1; }
+}
+
+@keyframes finish-boot {
+    0% { opacity: 1; }
+    99% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes screen-static {
+  0%, 100% { filter: brightness(1) contrast(1); transform: translateX(0); }
+  10% { filter: brightness(1.05) contrast(0.95); transform: translateX(-0.5px); }
+  20% { filter: brightness(0.95) contrast(1.05); transform: translateX(0.5px); }
+  30% { filter: brightness(1.03) contrast(0.97); transform: translateX(-0.2px); }
+  40% { filter: brightness(0.98) contrast(1.02); transform: translateX(0.3px); }
+  50% { filter: brightness(1.01) contrast(0.99); transform: translateX(-0.4px); }
+  60% { filter: brightness(0.97) contrast(1.03); transform: translateX(0.6px); }
+  70% { filter: brightness(1.04) contrast(0.96); transform: translateX(-0.7px); }
+  80% { filter: brightness(0.96) contrast(1.04); transform: translateX(0.4px); }
+  90% { filter: brightness(1.02) contrast(0.98); transform: translateX(-0.1px); }
+}
+
+@keyframes horizontal-glitch-line {
+  0%, 60%, 100% { opacity: 0; transform: translateY(-100vh); }
+  65% { opacity: 0.6; transform: translateY(30vh); background: linear-gradient(to right, rgba(0,255,65,0.6) 0%, transparent 5%, transparent 95%, rgba(0,255,65,0.6) 100%); box-shadow: 0 0 10px rgba(0,255,65,0.8); }
+  67% { opacity: 0.7; transform: translateY(70vh); }
+  68% { opacity: 0; }
+}
+
+/* --- Cryptic Character Glitch (More Reliable Version) --- */
+@keyframes glitch-overlay-flicker {
+  0%, 92%, 100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  93% {
+    opacity: 1;
+    transform: translateX(-5px) skewX(20deg);
+  }
+  94% {
+    opacity: 0;
+  }
+  96% {
+    opacity: 1;
+    transform: translateX(5px) skewX(-20deg);
+  }
+  97% {
+    opacity: 0;
+  }
+}
+
+
+/* --- Main Body and Overlays --- */
+
+body {
+  background-color: #000;
+  color: #00ff41;
+  font-family: 'VT323', monospace;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  animation: screen-flicker 3s infinite step-end;
+}
+
+html::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-shadow: inset 0px 0px 100px 30px rgba(100,100,100,0.15);
+    pointer-events: none;
+    z-index: 1001;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: repeating-linear-gradient(transparent 0%, rgba(0,0,0,0.25) 50%, transparent 100%), repeating-linear-gradient(0deg, rgba(0,0,0,0.4) 1px, transparent 1px, transparent 3px);
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 1000;
+    animation: screen-static 0.5s infinite;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 3px;
+    background: transparent;
+    pointer-events: none;
+    z-index: 1002;
+    animation: horizontal-glitch-line 8s infinite;
+}
+
+
+/* --- Boot Sequence --- */
+
+#boot-sequence {
+    animation: finish-boot 4s forwards;
+}
+
+.boot-line {
+}
+
+#line1 { animation: boot-fade-in 0.5s 0.5s forwards; }
+#line2 { animation: boot-fade-in 0.5s 1.2s forwards; }
+#line3 { animation: boot-fade-in 0.5s 2.0s forwards; }
+#line4 { animation: boot-fade-in 0.5s 2.8s forwards; }
+
+
+/* --- Main Content --- */
+
+#main-content {
+    animation: boot-fade-in 0.5s 4s forwards;
+}
+
+li::before {
+  content: '■';
+  position: absolute;
+  left: 0;
+  color: #00ff41;
+}
+
+ul ul li::before {
+  content: '-';
+}
+
+/* Cryptic Glitch Effect on List Items */
+li::after {
+  content: '█▓▒░$#@ █▓▒░$#@ █▓▒░$#@ █▓▒░$#@'; /* Fixed cryptic string */
+  font-family: 'serif'; /* Use a different font for more visual noise */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #00ff41;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  animation: glitch-overlay-flicker 7s infinite step-end;
+}
+
+header h1 {
+  color: #00ff41;
+  border-right: .1em solid #00ff41;
+  animation: typing 2s steps(12, end) 4.5s forwards, blink-caret .75s step-end 4.5s infinite;
+}
+
+a {
+  color: #90ee90;
+}
+
+a:hover {
+  background-color: #00ff41;
+  color: #000;
+}
