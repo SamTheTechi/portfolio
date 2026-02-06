@@ -1,4 +1,3 @@
-import './Style.css';
 import BootSequence from './components/BootSequence';
 import Header from './components/Header';
 import About from './components/About';
