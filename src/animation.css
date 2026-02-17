@@ -113,74 +113,179 @@
   }
 }
 
+@keyframes scanline-roll {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 0 120px, 0 60px;
+  }
+}
+
+@keyframes scanline-ripple {
+  0% {
+    transform: translateY(-15vh);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(115vh);
+    opacity: 0;
+  }
+}
+
+@keyframes crt-jitter {
+  0% {
+    transform: translateX(0);
+  }
+
+  4% {
+    transform: translateX(0.5px);
+  }
+
+  6% {
+    transform: translateX(-0.6px);
+  }
+
+  8% {
+    transform: translateX(0.4px);
+  }
+
+  10% {
+    transform: translateX(0);
+  }
+
+  55% {
+    transform: translateX(0);
+  }
+
+  58% {
+    transform: translateX(-0.7px);
+  }
+
+  60% {
+    transform: translateX(0.5px);
+  }
+
+  62% {
+    transform: translateX(-0.4px);
+  }
+
+  64% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @keyframes horizontal-glitch-line {
 
   0%,
-  60%,
+  25%,
+  55%,
   100% {
     opacity: 0;
     transform: translateY(-100vh);
   }
 
-  65% {
+  30% {
     opacity: 0.6;
     transform: translateY(30vh);
     background: linear-gradient(to right, rgba(0, 255, 65, 0.6) 0%, transparent 5%, transparent 95%, rgba(0, 255, 65, 0.6) 100%);
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
   }
 
-  67% {
+  33% {
     opacity: 0.7;
     transform: translateY(70vh);
   }
 
-  68% {
-    opacity: 0;
-  }
-}
-
-/* --- Cryptic Character Glitch (More Reliable Version) --- */
-@keyframes glitch-overlay-flicker {
-
-  0%,
-  92%,
-  100% {
-    opacity: 0;
-    transform: translateX(0);
-  }
-
-  93% {
-    opacity: 1;
-    transform: translateX(-5px) skewX(20deg);
-  }
-
-  94% {
+  35% {
     opacity: 0;
   }
 
-  96% {
-    opacity: 1;
-    transform: translateX(5px) skewX(-20deg);
+  60% {
+    opacity: 0.5;
+    transform: translateY(15vh);
   }
 
-  97% {
+  63% {
+    opacity: 0.8;
+    transform: translateY(60vh);
+  }
+
+  66% {
     opacity: 0;
   }
 }
 
 
-/* --- Main Body and Overlays --- */
+/* --- Overlays & CRT Effects --- */
 
-body {
-  background-color: #000;
-  color: #00ff41;
-  font-family: 'VT323', monospace;
-  font-size: 1.4rem;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  animation: screen-flicker 3s infinite step-end;
+.crt::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(0, 255, 65, 0.055),
+    rgba(0, 255, 65, 0.055) 1px,
+    transparent 1px,
+    transparent 3px
+  ),
+  repeating-linear-gradient(
+    180deg,
+    rgba(0, 255, 65, 0.055),
+    rgba(0, 255, 65, 0.055) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.32;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.crt::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.2) 100%);
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.terminal-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 255, 65, 0.07) 1px, transparent 1px);
+  background-size: 100% 3px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.terminal-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+  pointer-events: none;
 }
 
 html::before {
@@ -203,10 +308,10 @@ body::before {
   width: 100vw;
   height: 100vh;
   background-image: repeating-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.25) 50%, transparent 100%), repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.4) 1px, transparent 1px, transparent 3px);
-  opacity: 0.2;
+  opacity: 0.28;
   pointer-events: none;
   z-index: 1000;
-  animation: screen-static 0.5s infinite;
+  animation: screen-static 0.45s infinite, scanline-roll 6s linear infinite;
 }
 
 body::after {
@@ -219,82 +324,5 @@ body::after {
   background: transparent;
   pointer-events: none;
   z-index: 1002;
-  animation: horizontal-glitch-line 8s infinite;
-}
-
-
-/* --- Boot Sequence --- */
-
-#boot-sequence {
-  animation: finish-boot 4s forwards;
-}
-
-.boot-line {}
-
-#line1 {
-  animation: boot-fade-in 0.5s 0.5s forwards;
-}
-
-#line2 {
-  animation: boot-fade-in 0.5s 1.2s forwards;
-}
-
-#line3 {
-  animation: boot-fade-in 0.5s 2.0s forwards;
-}
-
-#line4 {
-  animation: boot-fade-in 0.5s 2.8s forwards;
-}
-
-
-/* --- Main Content --- */
-
-#main-content {
-  animation: boot-fade-in 0.5s 4s forwards;
-}
-
-li::before {
-  content: '■';
-  position: absolute;
-  left: 0;
-  color: #00ff41;
-}
-
-ul ul li::before {
-  content: '-';
-}
-
-/* Cryptic Glitch Effect on List Items */
-li::after {
-  content: '█▓▒░$#@ █▓▒░$#@ █▓▒░$#@ █▓▒░$#@';
-  /* Fixed cryptic string */
-  font-family: 'serif';
-  /* Use a different font for more visual noise */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  color: #00ff41;
-  opacity: 0;
-  pointer-events: none;
-  overflow: hidden;
-  animation: glitch-overlay-flicker 7s infinite step-end;
-}
-
-header h1 {
-  color: #00ff41;
-  border-right: .1em solid #00ff41;
-  animation: typing 2s steps(12, end) 4.5s forwards, blink-caret .75s step-end 4.5s infinite;
-}
-
-a {
-  color: #90ee90;
-}
-
-a:hover {
-  background-color: #00ff41;
-  color: #000;
+  animation: horizontal-glitch-line 5s infinite;
 }
