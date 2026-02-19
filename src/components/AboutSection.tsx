@@ -2,9 +2,9 @@ import { aboutLines } from '../data/profile';
 
 const AboutSection = () => (
   <section aria-label="About">
-    <div className="flex items-center gap-4 mt-10 mb-6">
-      <span className="text-[rgba(0,255,65,0.7)] text-[1.1rem]">user@host:</span>
-      <span className="text-[1.4rem] lowercase text-[#00ff41] [text-shadow:0_0_10px_rgba(0,255,65,0.5)]">
+    <div className="flex flex-wrap items-center gap-4 gap-y-2 mt-10 mb-6 max-[640px]:mt-8 max-[640px]:mb-5">
+      <span className="text-[rgba(0,255,65,0.7)] text-[1.1rem] max-[480px]:text-[1rem]">Asuna@Sao:</span>
+      <span className="text-[1.4rem] max-[480px]:text-[1.2rem] lowercase text-[#00ff41] [text-shadow:0_0_10px_rgba(0,255,65,0.5)]">
         about
       </span>
       <span
@@ -14,7 +14,10 @@ const AboutSection = () => (
     </div>
     <div className="border border-[rgba(0,255,65,0.4)] rounded-[16px] p-6 bg-[rgba(0,0,0,0.65)] shadow-[inset_0_0_18px_rgba(0,255,65,0.08)]">
       {aboutLines.map((line) => (
-        <p key={line} className="m-0 text-[1.1rem] text-[rgba(144,238,144,0.85)]">
+        <p
+          key={line}
+          className="m-0 text-[1.15rem] max-[480px]:text-[1.05rem] text-[rgba(144,238,144,0.85)]"
+        >
           {line}
         </p>
       ))}

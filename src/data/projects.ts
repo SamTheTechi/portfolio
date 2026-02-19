@@ -26,6 +26,12 @@ export const projectCategories: ProjectCategory[] = [
         image: '/projects/placeholder-web.svg',
         github: 'https://github.com/example/pulsecart',
       },
+      {
+        title: 'OrbitDesk',
+        description: 'A personal workspace hub with shortcuts, widgets, and live status tiles.',
+        image: '/projects/placeholder-web.svg',
+        github: 'https://github.com/example/orbitdesk',
+      },
     ],
   },
   {
@@ -43,6 +49,12 @@ export const projectCategories: ProjectCategory[] = [
         image: '/projects/placeholder-low.svg',
         github: 'https://github.com/example/signalforge',
       },
+      {
+        title: 'ByteShuttle',
+        description: 'A lightweight IPC experiment with shared-memory channels and tracing.',
+        image: '/projects/placeholder-low.svg',
+        github: 'https://github.com/example/byteshuttle',
+      },
     ],
   },
   {
@@ -59,6 +71,12 @@ export const projectCategories: ProjectCategory[] = [
         description: 'A lightweight booking tool for student labs with QR check-in.',
         image: '/projects/placeholder-fun.svg',
         github: 'https://github.com/example/studioops',
+      },
+      {
+        title: 'GlitchGarden',
+        description: 'A generative pixel garden with daily seeds and neon palettes.',
+        image: '/projects/placeholder-fun.svg',
+        github: 'https://github.com/example/glitchgarden',
       },
     ],
   },

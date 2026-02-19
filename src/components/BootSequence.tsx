@@ -5,8 +5,8 @@ const BootSequence = () => (
   >
     <div className="terminal-frame relative w-[min(760px,92vw)] px-8 py-6 rounded-[14px] border border-[rgba(0,255,65,0.4)] bg-[rgba(0,0,0,0.88)] shadow-[inset_0_0_20px_rgba(0,255,65,0.08)] overflow-hidden">
       <div className="flex justify-between text-[1.05rem] tracking-[0.02em] mb-[1.15rem] text-[rgba(144,238,144,0.85)]">
-        <span>AKTU BIOS v2.3</span>
-        <span>(C) 1999 AKTU Corp.</span>
+        <span>ARCH BIOS v6.18.9</span>
+        <span>(C) 1991 LINUX Corp.</span>
       </div>
       <div className="grid gap-2.5">
         <p className="m-0 text-[#00ff41] opacity-0 whitespace-pre animate-[boot-fade-in_0.5s_0.5s_forwards]">

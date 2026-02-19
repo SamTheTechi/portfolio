@@ -1,5 +1,7 @@
 export const aboutLines = [
-  'B.Tech in Computer Science Engineering at United College of Engineering and Research (AKTU), 2023-Present.',
+  'I design and build fast, clean products with a bias toward shipping.',
+  'I like turning messy ideas into sharp interfaces and dependable systems.',
+  'When the build is done, I obsess over the tiny details that make it feel alive.',
 ];
 
 export type SkillGroup = {
@@ -21,11 +23,7 @@ export const skillGroups: SkillGroup[] = [
     items: ['Node.js', 'Express', 'FastAPI', 'gRPC', 'LangChain', 'MongoDB', 'Redis', 'Postgres', 'Pinecone'],
   },
   {
-    label: 'devops',
-    items: ['Docker', 'AWS', 'Cloudflare', 'Vercel'],
-  },
-  {
-    label: 'developer tools',
-    items: ['Linux (Arch/Debian)', 'Neovim', 'VSCode', 'Tmux', 'Git/GitHub'],
+    label: 'devops & tooling',
+    items: ['Docker', 'AWS', 'Cloudflare', 'Linux (Arch/Debian)', 'Neovim', 'Git/GitHub'],
   },
 ];

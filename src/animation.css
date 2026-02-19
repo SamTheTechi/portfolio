@@ -1,17 +1,12 @@
-/* style.css - 90s Terminal Theme with Boot Sequence and Glitch Effects */
-
-/* --- Keyframe Animations --- */
-
 @keyframes typing {
   from {
     width: 0
   }
 
   to {
-    width: 12ch
+    width: 14ch
   }
 
-  /* "Sameer Gupta" is 12 characters */
 }
 
 @keyframes blink-caret {
@@ -23,18 +18,6 @@
 
   50% {
     border-color: #00ff41;
-  }
-}
-
-@keyframes screen-flicker {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.9;
   }
 }
 
@@ -56,70 +39,6 @@
   100% {
     opacity: 0;
     visibility: hidden;
-  }
-}
-
-@keyframes screen-static {
-
-  0%,
-  100% {
-    filter: brightness(1) contrast(1);
-    transform: translateX(0);
-  }
-
-  10% {
-    filter: brightness(1.05) contrast(0.95);
-    transform: translateX(-0.5px);
-  }
-
-  20% {
-    filter: brightness(0.95) contrast(1.05);
-    transform: translateX(0.5px);
-  }
-
-  30% {
-    filter: brightness(1.03) contrast(0.97);
-    transform: translateX(-0.2px);
-  }
-
-  40% {
-    filter: brightness(0.98) contrast(1.02);
-    transform: translateX(0.3px);
-  }
-
-  50% {
-    filter: brightness(1.01) contrast(0.99);
-    transform: translateX(-0.4px);
-  }
-
-  60% {
-    filter: brightness(0.97) contrast(1.03);
-    transform: translateX(0.6px);
-  }
-
-  70% {
-    filter: brightness(1.04) contrast(0.96);
-    transform: translateX(-0.7px);
-  }
-
-  80% {
-    filter: brightness(0.96) contrast(1.04);
-    transform: translateX(0.4px);
-  }
-
-  90% {
-    filter: brightness(1.02) contrast(0.98);
-    transform: translateX(-0.1px);
-  }
-}
-
-@keyframes scanline-roll {
-  0% {
-    background-position: 0 0, 0 0;
-  }
-
-  100% {
-    background-position: 0 120px, 0 60px;
   }
 }
 
@@ -153,15 +72,15 @@
   }
 
   4% {
-    transform: translateX(0.5px);
+    transform: translateX(1px);
   }
 
   6% {
-    transform: translateX(-0.6px);
+    transform: translateX(-0.8px);
   }
 
   8% {
-    transform: translateX(0.4px);
+    transform: translateX(0.6px);
   }
 
   10% {
@@ -173,15 +92,15 @@
   }
 
   58% {
-    transform: translateX(-0.7px);
+    transform: translateX(-0.9px);
   }
 
   60% {
-    transform: translateX(0.5px);
+    transform: translateX(0.7px);
   }
 
   62% {
-    transform: translateX(-0.4px);
+    transform: translateX(-0.6px);
   }
 
   64% {
@@ -193,69 +112,31 @@
   }
 }
 
-@keyframes horizontal-glitch-line {
-
-  0%,
-  25%,
-  55%,
-  100% {
-    opacity: 0;
-    transform: translateY(-100vh);
-  }
-
-  30% {
-    opacity: 0.6;
-    transform: translateY(30vh);
-    background: linear-gradient(to right, rgba(0, 255, 65, 0.6) 0%, transparent 5%, transparent 95%, rgba(0, 255, 65, 0.6) 100%);
-    box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
-  }
-
-  33% {
-    opacity: 0.7;
-    transform: translateY(70vh);
-  }
-
-  35% {
-    opacity: 0;
-  }
-
-  60% {
-    opacity: 0.5;
-    transform: translateY(15vh);
-  }
-
-  63% {
-    opacity: 0.8;
-    transform: translateY(60vh);
-  }
-
-  66% {
-    opacity: 0;
-  }
+.scanline-ripple {
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(0, 255, 65, var(--scanline-alpha, 0.45)),
+      transparent);
+  filter: drop-shadow(0 0 6px rgba(0, 255, 65, var(--scanline-glow, 0.2)));
+  opacity: calc(var(--scanline-alpha, 0.35) + var(--scanline-boost, 0));
+  will-change: transform, opacity;
 }
-
-
-/* --- Overlays & CRT Effects --- */
 
 .crt::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    180deg,
-    rgba(0, 255, 65, 0.055),
-    rgba(0, 255, 65, 0.055) 1px,
-    transparent 1px,
-    transparent 3px
-  ),
-  repeating-linear-gradient(
-    180deg,
-    rgba(0, 255, 65, 0.055),
-    rgba(0, 255, 65, 0.055) 1px,
-    transparent 1px,
-    transparent 3px
-  );
-  opacity: 0.32;
+  background-image: repeating-linear-gradient(180deg,
+      rgba(0, 255, 65, 0.04),
+      rgba(0, 255, 65, 0.04) 1px,
+      transparent 1px,
+      transparent 4px),
+    repeating-linear-gradient(180deg,
+      rgba(0, 255, 65, 0.035),
+      rgba(0, 255, 65, 0.035) 1px,
+      transparent 1px,
+      transparent 4px);
+  opacity: 0.4;
   mix-blend-mode: screen;
   pointer-events: none;
   z-index: 10000;
@@ -270,24 +151,6 @@
   z-index: 10000;
 }
 
-.terminal-frame::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(0, 255, 65, 0.07) 1px, transparent 1px);
-  background-size: 100% 3px;
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.terminal-frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
-  pointer-events: none;
-}
-
 html::before {
   content: '';
   position: fixed;
@@ -300,29 +163,13 @@ html::before {
   z-index: 1001;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: repeating-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.25) 50%, transparent 100%), repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.4) 1px, transparent 1px, transparent 3px);
-  opacity: 0.28;
-  pointer-events: none;
-  z-index: 1000;
-  animation: screen-static 0.45s infinite, scanline-roll 6s linear infinite;
-}
+@media (max-width: 640px) {
+  .crt::before {
+    opacity: 0.6;
+  }
 
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 3px;
-  background: transparent;
-  pointer-events: none;
-  z-index: 1002;
-  animation: horizontal-glitch-line 5s infinite;
+  .scanline-ripple {
+    --scanline-boost: 0.08;
+    filter: drop-shadow(0 0 7px rgba(0, 255, 65, 0.25));
+  }
 }
