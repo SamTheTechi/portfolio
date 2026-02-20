@@ -27,11 +27,11 @@ export const funGroups: FunGroup[] = [
     items: [
       {
         label: 'favorites',
-        value: 'Steins;Gate, Vinland Saga, 86, Mob Psycho 100',
+        value: 'BunnyGirlSenpai, 86, Higehiro, FateSeries',
       },
       {
         label: 'rewatch',
-        value: 'Cowboy Bebop, Samurai Champloo',
+        value: 'CyberpunkEdgerunners, SwordArtOnline',
       },
     ],
   }

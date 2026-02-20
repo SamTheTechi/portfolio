@@ -3,7 +3,7 @@ import { funGroups } from '../data/fun';
 const FunSection = () => (
   <section aria-label="Fun">
     <div className="flex flex-wrap items-center gap-4 gap-y-2 mt-10 mb-6 max-[640px]:mt-8 max-[640px]:mb-5">
-      <span className="text-[rgba(0,255,65,0.7)] text-[1.1rem] max-[480px]:text-[1rem]">Yui@K-ON:</span>
+      <span className="text-[rgba(0,255,65,0.7)] text-[1.1rem] max-[480px]:text-[1rem]">Mio@K-ON:</span>
       <span className="text-[1.4rem] max-[480px]:text-[1.2rem] lowercase text-[#00ff41] [text-shadow:0_0_10px_rgba(0,255,65,0.5)]">
         fun
       </span>
