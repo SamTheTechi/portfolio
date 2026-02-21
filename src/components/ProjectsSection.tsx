@@ -5,7 +5,7 @@ const ProjectsSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section aria-label="Projects">
+    <section aria-label="Projects" className="projects-section">
       <div className="flex flex-wrap items-center gap-4 gap-y-2 mt-10 mb-6 max-[640px]:mt-8 max-[640px]:mb-5">
         <span className="text-[rgba(var(--crt-accent-rgb),0.7)] text-[1.1rem] max-[480px]:text-[1rem]">Sayu@Higehiro:</span>
         <span className="text-[1.4rem] max-[480px]:text-[1.2rem] lowercase text-[var(--crt-accent)] [text-shadow:0_0_10px_rgba(var(--crt-accent-rgb),0.5)]">
@@ -16,7 +16,7 @@ const ProjectsSection = () => {
           aria-hidden="true"
         />
       </div>
-      <div className="grid grid-cols-3 gap-8 max-[1100px]:grid-cols-1">
+      <div className="projects-grid grid grid-cols-3 gap-8 max-[1100px]:grid-cols-1">
         {projectCategories.map((category, index) => {
           const visibleCount = 1;
           const visibleProjects = category.projects.slice(0, visibleCount);
@@ -36,7 +36,7 @@ const ProjectsSection = () => {
                     key={project.title}
                     className="flex flex-col gap-3.5 [text-shadow:0_0_8px_rgba(var(--crt-accent-rgb),0.25)]"
                   >
-                    <div className="border border-[rgba(var(--crt-accent-rgb),0.5)] rounded-[14px] overflow-hidden bg-[#020302] max-[480px]:max-w-[320px] max-[480px]:mx-auto">
+                    <div className="projects-card border border-[rgba(var(--crt-accent-rgb),0.5)] rounded-[14px] overflow-hidden bg-[#020302] max-[480px]:max-w-[320px] max-[480px]:mx-auto">
                       <img
                         src={project.image}
                         alt={`${project.title} preview`}
@@ -44,7 +44,7 @@ const ProjectsSection = () => {
                         className="w-full block h-auto saturate-[0.9]"
                       />
                     </div>
-                    <div className="flex flex-col gap-2 max-[480px]:max-w-[320px] max-[480px]:mx-auto">
+                    <div className="projects-meta flex flex-col gap-2 max-[480px]:max-w-[320px] max-[480px]:mx-auto">
                       <div className="flex items-baseline justify-between gap-4">
                         <h4 className="m-0 text-[1.1rem] max-[480px]:text-[1.05rem] text-[var(--crt-accent-light)]">
                           {project.title}
@@ -76,7 +76,7 @@ const ProjectsSection = () => {
                           key={project.title}
                           className="flex flex-col gap-3.5 [text-shadow:0_0_8px_rgba(var(--crt-accent-rgb),0.25)]"
                         >
-                          <div className="border border-[rgba(var(--crt-accent-rgb),0.5)] rounded-[14px] overflow-hidden bg-[#020302] max-[480px]:max-w-[320px] max-[480px]:mx-auto">
+                          <div className="projects-card border border-[rgba(var(--crt-accent-rgb),0.5)] rounded-[14px] overflow-hidden bg-[#020302] max-[480px]:max-w-[320px] max-[480px]:mx-auto">
                             <img
                               src={project.image}
                               alt={`${project.title} preview`}
@@ -84,7 +84,7 @@ const ProjectsSection = () => {
                               className="w-full block h-auto saturate-[0.9]"
                             />
                           </div>
-                          <div className="flex flex-col gap-2 max-[480px]:max-w-[320px] max-[480px]:mx-auto">
+                          <div className="projects-meta flex flex-col gap-2 max-[480px]:max-w-[320px] max-[480px]:mx-auto">
                             <div className="flex items-baseline justify-between gap-4">
                               <h4 className="m-0 text-[1.1rem] max-[480px]:text-[1.05rem] text-[var(--crt-accent-light)]">
                                 {project.title}

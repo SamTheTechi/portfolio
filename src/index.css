@@ -23,6 +23,51 @@
 html,
 body {
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .projects-section .projects-grid {
+    gap: 1.25rem;
+  }
+
+  .projects-section .projects-card {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .projects-section .projects-meta {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .projects-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .projects-section h4 {
+    font-size: 1rem;
+  }
+
+  .projects-section p {
+    font-size: 0.95rem;
+  }
 }
 
 .no-select {

@@ -112,28 +112,19 @@
   }
 }
 
-@keyframes miku-peek {
+@keyframes pikachu-run {
   0% {
-    transform: translateX(110%);
-    opacity: 0;
-  }
-  15% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-  60% {
-    transform: translateX(0%);
-    opacity: 1;
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(110%);
-    opacity: 0;
+    transform: translateX(calc(100vw + 280px));
   }
 }
 
-.miku-peek {
-  animation: miku-peek 2.4s ease-in-out;
-  filter: drop-shadow(0 0 10px rgba(var(--crt-accent-rgb), 0.35));
+.pikachu-runner {
+  animation: pikachu-run 4s linear;
+  will-change: transform;
+  filter: drop-shadow(0 0 8px rgba(var(--crt-accent-rgb), 0.25));
   pointer-events: none;
 }
 

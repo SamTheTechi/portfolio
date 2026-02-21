@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { funGroups } from '../data/fun';
 
 const FunSection = () => {
-  const [showMiku, setShowMiku] = useState(false);
-  const [mikuKey, setMikuKey] = useState(0);
+  const [showPikachu, setShowPikachu] = useState(false);
+  const [pikachuKey, setPikachuKey] = useState(0);
 
-  const triggerMikuPeek = () => {
-    setShowMiku(true);
-    setMikuKey((prev) => prev + 1);
+  const triggerPikachuRun = () => {
+    setShowPikachu(true);
+    setPikachuKey((prev) => prev + 1);
   };
 
   return (
@@ -30,9 +31,10 @@ const FunSection = () => {
           <span>terminal log</span>
           <button
             type="button"
-            onClick={triggerMikuPeek}
-            className="cursor-pointer select-none transition hover:text-[var(--crt-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--crt-accent)]"
+            onClick={triggerPikachuRun}
+            className="cursor-pointer select-none transition hover:text-[var(--crt-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--crt-accent)] disabled:cursor-not-allowed disabled:text-[rgba(var(--crt-accent-light-rgb),0.4)] disabled:hover:text-[rgba(var(--crt-accent-light-rgb),0.4)]"
             aria-label="Run fun.exe"
+            disabled={showPikachu}
           >
             fun.exe
           </button>
@@ -97,35 +99,23 @@ const FunSection = () => {
           ))}
         </div>
       </div>
-      {showMiku ? (
-        <div
-          key={mikuKey}
-          className="miku-peek fixed right-[-32px] bottom-6 z-[10001]"
-          onAnimationEnd={() => setShowMiku(false)}
-          aria-hidden="true"
-        >
-          <svg
-            viewBox="0 0 120 160"
-            className="block w-[90px] max-[600px]:w-[70px]"
-            role="img"
-            aria-hidden="true"
-          >
-            <defs>
-              <linearGradient id="miku-hair" x1="0" x2="1">
-                <stop offset="0%" stopColor="rgba(var(--crt-accent-rgb),0.15)" />
-                <stop offset="100%" stopColor="rgba(var(--crt-accent-rgb),0.55)" />
-              </linearGradient>
-            </defs>
-            <rect x="12" y="18" width="96" height="110" rx="22" fill="rgba(0,0,0,0.55)" stroke="rgba(var(--crt-accent-rgb),0.35)" />
-            <rect x="6" y="12" width="18" height="120" rx="8" fill="url(#miku-hair)" />
-            <rect x="96" y="12" width="18" height="120" rx="8" fill="url(#miku-hair)" />
-            <circle cx="60" cy="60" r="26" fill="rgba(0,0,0,0.7)" stroke="rgba(var(--crt-accent-rgb),0.4)" />
-            <circle cx="50" cy="58" r="4" fill="rgba(var(--crt-accent-rgb),0.7)" />
-            <circle cx="70" cy="58" r="4" fill="rgba(var(--crt-accent-rgb),0.7)" />
-            <path d="M48 72 Q60 80 72 72" stroke="rgba(var(--crt-accent-light-rgb),0.8)" strokeWidth="3" fill="none" />
-          </svg>
-        </div>
-      ) : null}
+      {showPikachu
+        ? createPortal(
+            <div
+              key={pikachuKey}
+              className="pikachu-runner fixed left-[-180px] bottom-4 z-[10001]"
+              onAnimationEnd={() => setShowPikachu(false)}
+              aria-hidden="true"
+            >
+              <img
+                src="/pika.gif"
+                alt=""
+                className="block w-[140px] max-[600px]:w-[110px] [image-rendering:pixelated]"
+              />
+            </div>,
+            document.body
+          )
+        : null}
     </section>
   );
 };
