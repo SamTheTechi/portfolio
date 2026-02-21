@@ -18,7 +18,7 @@ export default function App() {
             className="relative pt-8 pb-12 max-[720px]:pt-6 max-[720px]:pb-10 animate-[crt-jitter_12s_steps(1,end)_infinite]"
             aria-label="Content"
           >
-            <div className="terminal-frame relative max-w-3xl mx-auto py-16 px-8 max-[720px]:py-10 max-[720px]:px-5 max-[480px]:py-8 max-[480px]:px-4 border border-[rgba(0,255,65,0.35)] rounded-[18px] bg-[rgba(0,255,65,0.05)] max-[640px]:bg-[rgba(0,255,65,0.025)] shadow-[0_0_40px_rgba(0,255,65,0.15),inset_0_0_30px_rgba(0,0,0,0.8)] overflow-hidden transform-gpu">
+            <div className="terminal-frame relative max-w-3xl mx-auto py-16 px-8 max-[720px]:py-10 max-[720px]:px-5 max-[480px]:py-8 max-[480px]:px-4 border border-[rgba(var(--crt-accent-rgb),0.35)] rounded-[18px] bg-[rgba(var(--crt-accent-rgb),0.05)] max-[640px]:bg-[rgba(var(--crt-accent-rgb),0.025)] shadow-[0_0_40px_rgba(var(--crt-accent-rgb),0.15),inset_0_0_30px_rgba(0,0,0,0.8)] overflow-hidden transform-gpu">
               <Header />
               <AboutSection />
               <SkillsSection />

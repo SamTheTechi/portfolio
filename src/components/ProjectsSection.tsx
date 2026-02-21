@@ -7,12 +7,12 @@ const ProjectsSection = () => {
   return (
     <section aria-label="Projects">
       <div className="flex flex-wrap items-center gap-4 gap-y-2 mt-10 mb-6 max-[640px]:mt-8 max-[640px]:mb-5">
-        <span className="text-[rgba(0,255,65,0.7)] text-[1.1rem] max-[480px]:text-[1rem]">Sayu@Higehiro:</span>
-        <span className="text-[1.4rem] max-[480px]:text-[1.2rem] lowercase text-[#00ff41] [text-shadow:0_0_10px_rgba(0,255,65,0.5)]">
+        <span className="text-[rgba(var(--crt-accent-rgb),0.7)] text-[1.1rem] max-[480px]:text-[1rem]">Sayu@Higehiro:</span>
+        <span className="text-[1.4rem] max-[480px]:text-[1.2rem] lowercase text-[var(--crt-accent)] [text-shadow:0_0_10px_rgba(var(--crt-accent-rgb),0.5)]">
           projects
         </span>
         <span
-          className="flex-1 h-px bg-[linear-gradient(90deg,rgba(0,255,65,0.6),rgba(0,255,65,0))]"
+          className="flex-1 h-px bg-[linear-gradient(90deg,rgba(var(--crt-accent-rgb),0.6),rgba(var(--crt-accent-rgb),0))]"
           aria-hidden="true"
         />
       </div>
@@ -25,18 +25,18 @@ const ProjectsSection = () => {
           return (
             <div
               key={category.label}
-              className={`px-5 ${index === 0 ? '' : 'border-l border-[rgba(0,255,65,0.35)] max-[1100px]:border-l-0 max-[1100px]:border-t max-[1100px]:pt-6'} max-[1100px]:px-0`}
+              className={`px-5 ${index === 0 ? '' : 'border-l border-[rgba(var(--crt-accent-rgb),0.35)] max-[1100px]:border-l-0 max-[1100px]:border-t max-[1100px]:pt-6'} max-[1100px]:px-0`}
             >
-              <h3 className="m-0 mb-4 text-[1.35rem] max-[480px]:text-[1.2rem] lowercase text-[#00ff41]">
+              <h3 className="m-0 mb-4 text-[1.35rem] max-[480px]:text-[1.2rem] lowercase text-[var(--crt-accent)]">
                 {category.label}
               </h3>
               <div className="flex flex-col gap-5">
                 {visibleProjects.map((project) => (
                   <article
                     key={project.title}
-                    className="flex flex-col gap-3.5 [text-shadow:0_0_8px_rgba(0,255,65,0.25)]"
+                    className="flex flex-col gap-3.5 [text-shadow:0_0_8px_rgba(var(--crt-accent-rgb),0.25)]"
                   >
-                    <div className="border border-[rgba(0,255,65,0.5)] rounded-[14px] overflow-hidden bg-[#020302] max-[480px]:max-w-[320px] max-[480px]:mx-auto">
+                    <div className="border border-[rgba(var(--crt-accent-rgb),0.5)] rounded-[14px] overflow-hidden bg-[#020302] max-[480px]:max-w-[320px] max-[480px]:mx-auto">
                       <img
                         src={project.image}
                         alt={`${project.title} preview`}
@@ -46,11 +46,11 @@ const ProjectsSection = () => {
                     </div>
                     <div className="flex flex-col gap-2 max-[480px]:max-w-[320px] max-[480px]:mx-auto">
                       <div className="flex items-baseline justify-between gap-4">
-                        <h4 className="m-0 text-[1.1rem] max-[480px]:text-[1.05rem] text-[#90ee90]">
+                        <h4 className="m-0 text-[1.1rem] max-[480px]:text-[1.05rem] text-[var(--crt-accent-light)]">
                           {project.title}
                         </h4>
                         <a
-                          className="text-[1rem] max-[480px]:text-[1.05rem] lowercase text-[#90ee90] hover:bg-[#00ff41] hover:text-black px-1"
+                          className="text-[1rem] max-[480px]:text-[1.05rem] lowercase text-[var(--crt-accent-light)] hover:bg-[var(--crt-accent)] hover:text-black px-1"
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -58,7 +58,7 @@ const ProjectsSection = () => {
                           github
                         </a>
                       </div>
-                      <p className="m-0 text-[1rem] max-[480px]:text-[0.95rem] text-[rgba(144,238,144,0.8)]">
+                      <p className="m-0 text-[1rem] max-[480px]:text-[0.95rem] text-[rgba(var(--crt-accent-light-rgb),0.8)]">
                         {project.description}
                       </p>
                     </div>
@@ -74,9 +74,9 @@ const ProjectsSection = () => {
                       {hiddenProjects.map((project) => (
                         <article
                           key={project.title}
-                          className="flex flex-col gap-3.5 [text-shadow:0_0_8px_rgba(0,255,65,0.25)]"
+                          className="flex flex-col gap-3.5 [text-shadow:0_0_8px_rgba(var(--crt-accent-rgb),0.25)]"
                         >
-                          <div className="border border-[rgba(0,255,65,0.5)] rounded-[14px] overflow-hidden bg-[#020302] max-[480px]:max-w-[320px] max-[480px]:mx-auto">
+                          <div className="border border-[rgba(var(--crt-accent-rgb),0.5)] rounded-[14px] overflow-hidden bg-[#020302] max-[480px]:max-w-[320px] max-[480px]:mx-auto">
                             <img
                               src={project.image}
                               alt={`${project.title} preview`}
@@ -86,11 +86,11 @@ const ProjectsSection = () => {
                           </div>
                           <div className="flex flex-col gap-2 max-[480px]:max-w-[320px] max-[480px]:mx-auto">
                             <div className="flex items-baseline justify-between gap-4">
-                              <h4 className="m-0 text-[1.1rem] max-[480px]:text-[1.05rem] text-[#90ee90]">
+                              <h4 className="m-0 text-[1.1rem] max-[480px]:text-[1.05rem] text-[var(--crt-accent-light)]">
                                 {project.title}
                               </h4>
                               <a
-                                className="text-[1rem] max-[480px]:text-[1.05rem] lowercase text-[#90ee90] hover:bg-[#00ff41] hover:text-black px-1"
+                                className="text-[1rem] max-[480px]:text-[1.05rem] lowercase text-[var(--crt-accent-light)] hover:bg-[var(--crt-accent)] hover:text-black px-1"
                                 href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -98,7 +98,7 @@ const ProjectsSection = () => {
                                 github
                               </a>
                             </div>
-                            <p className="m-0 text-[1rem] max-[480px]:text-[0.95rem] text-[rgba(144,238,144,0.8)]">
+                            <p className="m-0 text-[1rem] max-[480px]:text-[0.95rem] text-[rgba(var(--crt-accent-light-rgb),0.8)]">
                               {project.description}
                             </p>
                           </div>
@@ -117,7 +117,7 @@ const ProjectsSection = () => {
           type="button"
           onClick={() => setIsExpanded((prev) => !prev)}
           aria-expanded={isExpanded}
-          className="inline-flex items-center rounded-full border border-[rgba(0,255,65,0.5)] bg-[rgba(0,255,65,0.08)] px-4 py-2 max-[480px]:px-3 max-[480px]:py-1.5 text-[0.85rem] max-[480px]:text-[0.75rem] uppercase tracking-[0.25em] max-[480px]:tracking-[0.2em] text-[#90ee90] shadow-[0_0_14px_rgba(0,255,65,0.25)] transition-all hover:bg-[rgba(0,255,65,0.18)] hover:text-[#00ff41] hover:shadow-[0_0_20px_rgba(0,255,65,0.35)]"
+          className="inline-flex items-center rounded-full border border-[rgba(var(--crt-accent-rgb),0.5)] bg-[rgba(var(--crt-accent-rgb),0.08)] px-4 py-2 max-[480px]:px-3 max-[480px]:py-1.5 text-[0.85rem] max-[480px]:text-[0.75rem] uppercase tracking-[0.25em] max-[480px]:tracking-[0.2em] text-[var(--crt-accent-light)] shadow-[0_0_14px_rgba(var(--crt-accent-rgb),0.25)] transition-all hover:bg-[rgba(var(--crt-accent-rgb),0.18)] hover:text-[var(--crt-accent)] hover:shadow-[0_0_20px_rgba(var(--crt-accent-rgb),0.35)]"
         >
           {isExpanded ? 'show less' : 'show more'}
         </button>

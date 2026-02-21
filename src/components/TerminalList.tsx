@@ -16,8 +16,8 @@ function TerminalList({ items, depth = 0 }: TerminalListProps) {
       {items.map((item, index) => (
         <li key={index} className="m-0">
           <div className="flex items-start gap-3 mb-2">
-            <span className="text-[#00ff41]">{depth === 0 ? '■' : '-'}</span>
-            <div className="[text-shadow:0_0_8px_rgba(0,255,65,0.4)]">{item.label}</div>
+            <span className="text-[var(--crt-accent)]">{depth === 0 ? '■' : '-'}</span>
+            <div className="[text-shadow:0_0_8px_rgba(var(--crt-accent-rgb),0.4)]">{item.label}</div>
           </div>
           {item.items && item.items.length > 0 ? (
             <TerminalList items={item.items} depth={depth + 1} />

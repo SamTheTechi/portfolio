@@ -2,7 +2,30 @@
 @import "tailwindcss";
 @import './animation.css';
 
+:root[data-theme="green"] {
+  --crt-accent: #00ff41;
+  --crt-accent-rgb: 0, 255, 65;
+  --crt-accent-strong: #b6ffcf;
+  --crt-accent-strong-rgb: 182, 255, 207;
+  --crt-accent-light: #90ee90;
+  --crt-accent-light-rgb: 144, 238, 144;
+}
+
+:root[data-theme="amber"] {
+  --crt-accent: #ffbf00;
+  --crt-accent-rgb: 255, 191, 0;
+  --crt-accent-strong: #ffe29a;
+  --crt-accent-strong-rgb: 255, 226, 154;
+  --crt-accent-light: #ffd580;
+  --crt-accent-light-rgb: 255, 213, 128;
+}
+
 html,
 body {
   overflow-x: hidden;
+}
+
+.no-select {
+  user-select: none;
+  cursor: pointer;
 }
