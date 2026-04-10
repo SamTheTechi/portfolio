@@ -14,10 +14,5 @@ export const contactLinks: ContactLink[] = [
     label: 'github',
     value: 'github.com/SamTheTechi',
     href: 'https://github.com/SamTheTechi',
-  },
-  {
-    label: 'linkedin',
-    value: 'linkedin.com/in/sameer-gupta',
-    href: 'https://linkedin.com/in/sameer-gupta',
-  },
+  }
 ];
