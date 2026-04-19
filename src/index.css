@@ -72,5 +72,21 @@ body::-webkit-scrollbar,
 
 .no-select {
   user-select: none;
-  cursor: pointer;
+}
+
+/* Make interactive elements clearly interactive (hover + keyboard focus). */
+.crt a {
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--crt-accent-rgb), 0.45);
+  text-underline-offset: 0.18em;
+}
+
+.crt a:hover {
+  text-decoration-color: rgba(var(--crt-accent-rgb), 0.85);
+}
+
+.crt a:focus-visible,
+.crt button:focus-visible {
+  outline: 2px solid var(--crt-accent);
+  outline-offset: 4px;
 }

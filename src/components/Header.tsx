@@ -9,7 +9,7 @@ export default function Header() {
         &gt; Sameer Gupta
       </h1>
       <p className="mt-3 text-[1.15rem] max-[640px]:text-[1.05rem] text-[rgba(var(--crt-accent-light-rgb),0.85)]">
-        Product-focused software engineer building fast, clean web experiences.
+        Just need something to build at this point.
       </p>
     </header>
   );

@@ -1,8 +1,9 @@
 export type Project = {
   title: string;
   description: string;
-  image: string;
+  image?: string;
   github: string;
+  link?: string;
 };
 
 export type ProjectCategory = {
@@ -12,25 +13,21 @@ export type ProjectCategory = {
 
 export const projectCategories: ProjectCategory[] = [
   {
-    label: 'web/mobile',
+    label: 'web',
     projects: [
       {
-        title: 'AtlasUI',
-        description: 'A performance-first design system with tokenized themes and rapid prototyping.',
-        image: '/projects/placeholder-web.svg',
-        github: 'https://github.com/example/atlas-ui',
+        title: 'Verdent',
+        description: 'It is a full-stack Plant selling website with payment integration and custome auth',
+        image: '/projects/verdent.webp',
+        github: 'https://github.com/SamTheTechi/verdant',
+        link: 'https://verdant.samthetechi.com'
       },
       {
-        title: 'PulseCart',
-        description: 'A realtime storefront with headless checkout and an analytics dashboard.',
-        image: '/projects/placeholder-web.svg',
-        github: 'https://github.com/example/pulsecart',
-      },
-      {
-        title: 'OrbitDesk',
-        description: 'A personal workspace hub with shortcuts, widgets, and live status tiles.',
-        image: '/projects/placeholder-web.svg',
-        github: 'https://github.com/example/orbitdesk',
+        title: 'ChisaiURL',
+        description: 'Scaleable and Distributed url shortner with metrics and logging.',
+        image: '/projects/url.webp',
+        github: 'https://github.com/SamTheTechi/ChisaiURL',
+        link: 'https://url.samthetechi.com'
       },
     ],
   },
@@ -38,45 +35,35 @@ export const projectCategories: ProjectCategory[] = [
     label: 'low-level',
     projects: [
       {
-        title: 'DriftOS',
-        description: 'A toy kernel with a cooperative scheduler, paging, and a serial console.',
-        image: '/projects/placeholder-low.svg',
+        title: 'miniRedis',
+        description: 'It is a asynchronous Redis compatible in-memory key value DB built with Rust and Tokio.',
         github: 'https://github.com/example/driftos',
+        link: 'https://miniredis.samthetechi.com'
       },
       {
-        title: 'SignalForge',
-        description: 'A Rust DSP toolkit with SIMD filters and a minimal audio graph.',
-        image: '/projects/placeholder-low.svg',
+        title: 'kayori_V2',
+        description: 'An intelligent, multi-platform AI companion with emotional awareness and long-term memory.',
+        image: '/projects/kayori.webp',
         github: 'https://github.com/example/signalforge',
-      },
-      {
-        title: 'ByteShuttle',
-        description: 'A lightweight IPC experiment with shared-memory channels and tracing.',
-        image: '/projects/placeholder-low.svg',
-        github: 'https://github.com/example/byteshuttle',
+        link: 'https://kayori.samthetechi.com'
       },
     ],
   },
   {
-    label: 'miscellaneous/fun',
+    label: 'miscellaneous-fun',
     projects: [
       {
-        title: 'Neon Arcade',
-        description: 'A glitchy pixel runner built in three weekends with procedural levels.',
-        image: '/projects/placeholder-fun.svg',
-        github: 'https://github.com/example/neon-arcade',
+        title: 'Magica',
+        description: 'It is a 2D RPG adventure game built from scratch using vanilla JavaScript and HTML5 Canvas.',
+        image: '/projects/magica.webp',
+        github: 'https://github.com/SamTheTechi/Magica',
+        link: 'https://magica.samthetechi.com'
       },
       {
-        title: 'StudioOps',
-        description: 'A lightweight booking tool for student labs with QR check-in.',
-        image: '/projects/placeholder-fun.svg',
-        github: 'https://github.com/example/studioops',
-      },
-      {
-        title: 'GlitchGarden',
-        description: 'A generative pixel garden with daily seeds and neon palettes.',
-        image: '/projects/placeholder-fun.svg',
-        github: 'https://github.com/example/glitchgarden',
+        title: 'Whispefy',
+        description: 'It is a lightweight Linux voice-dictation app for Hyprland. It works like a Whisperflow',
+        github: 'https://github.com/SamTheTechi/whispefy',
+        link: 'https://whispefy.samthetechi.com'
       },
     ],
   },
