@@ -62,6 +62,7 @@ export const projectCategories: ProjectCategory[] = [
       {
         title: 'Whispefy',
         description: 'It is a lightweight Linux voice-dictation app for Hyprland. It works like a Whisperflow',
+        image: '/projects/whispefy.webp',
         github: 'https://github.com/SamTheTechi/whispefy',
         link: 'https://whispefy.samthetechi.com'
       },

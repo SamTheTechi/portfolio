@@ -10,10 +10,10 @@ import FunSection from './components/FunSection';
 export default function App() {
   return (
     <div className="relative min-h-screen">
-      <ScanlineRipples count={6} speed={8} duration={12} />
+      <ScanlineRipples count={12} speed={5} duration={14} />
       <div className="crt relative min-h-screen">
         <BootSequence />
-        <div id="main-content" className="opacity-0 animate-[boot-fade-in_0.5s_4s_forwards]">
+        <div id="main-content" className="opacity-0 animate-[boot-fade-in_0.5s_3s_forwards]">
           <main
             className="relative pt-8 pb-12 max-[720px]:pt-6 max-[720px]:pb-10 animate-[crt-jitter_12s_steps(1,end)_infinite]"
             aria-label="Content"
