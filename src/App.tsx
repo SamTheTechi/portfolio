@@ -3,6 +3,7 @@ import Header from './components/Header';
 import ProjectsSection from './components/ProjectsSection';
 import AboutSection from './components/AboutSection';
 import SkillsSection from './components/SkillsSection';
+import ExperienceSection from './components/ExperienceSection';
 import ContactSection from './components/ContactSection';
 import ScanlineRipples from './components/ScanlineRipples';
 import FunSection from './components/FunSection';
@@ -13,7 +14,7 @@ export default function App() {
       <ScanlineRipples count={12} speed={5} duration={14} />
       <div className="crt relative min-h-screen">
         <BootSequence />
-        <div id="main-content" className="opacity-0 animate-[boot-fade-in_0.5s_3s_forwards]">
+        <div id="main-content" className="opacity-0 animate-[boot-fade-in_0.5s_2.5s_forwards]">
           <main
             className="relative pt-8 pb-12 max-[720px]:pt-6 max-[720px]:pb-10 animate-[crt-jitter_12s_steps(1,end)_infinite]"
             aria-label="Content"
@@ -22,6 +23,7 @@ export default function App() {
               <Header />
               <AboutSection />
               <SkillsSection />
+              <ExperienceSection />
               <ProjectsSection />
               <FunSection />
               <ContactSection />

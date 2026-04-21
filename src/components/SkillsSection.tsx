@@ -15,17 +15,17 @@ const SkillsSection = () => (
         aria-hidden="true"
       />
     </div>
-    <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
+    <div className="grid gap-[0.95rem] [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
       {skillGroups.map((group) => (
         <article
           key={group.label}
-          className="border border-[rgba(var(--crt-accent-rgb),0.35)] rounded-[12px] px-4 py-3 max-[480px]:px-3 max-[480px]:py-2.5 bg-[rgba(0,0,0,0.55)]"
+          className="border border-[rgba(var(--crt-accent-rgb),0.35)] rounded-[12px] px-[0.95rem] py-[0.72rem] max-[480px]:px-[0.85rem] max-[480px]:py-[0.62rem] bg-[rgba(0,0,0,0.55)]"
         >
-          <div className="flex items-center gap-2 mb-2 text-[0.95rem] max-[480px]:text-[0.9rem] lowercase text-[var(--crt-accent-light)]">
+          <div className="flex items-center gap-2 mb-[0.45rem] text-[0.9rem] max-[480px]:text-[0.85rem] lowercase text-[var(--crt-accent-light)]">
             <span className="text-[var(--crt-accent)]">■</span>
             <span>{group.label}</span>
           </div>
-          <div className="text-[1.05rem] max-[480px]:text-[1rem] text-[rgba(var(--crt-accent-light-rgb),0.85)] leading-relaxed">
+          <div className="text-[1rem] max-[480px]:text-[0.95rem] text-[rgba(var(--crt-accent-light-rgb),0.85)] leading-relaxed">
             {group.items.join(' · ')}
           </div>
         </article>

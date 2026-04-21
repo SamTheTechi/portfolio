@@ -63,7 +63,7 @@ const FunSection = () => {
                         rel="noopener noreferrer"
                       >
                         <div className="grid grid-cols-[14px_1fr] gap-x-2 gap-y-1">
-                          <span className="text-[var(--crt-accent)]">&gt;</span>
+                          <span className="text-[0.9rem] text-[var(--crt-accent)]">&gt;</span>
                           <div className="flex flex-wrap items-baseline gap-2 text-[1.05rem] max-[480px]:text-[1rem]">
                             <span className="text-[rgba(var(--crt-accent-light-rgb),0.85)] lowercase">
                               {item.label}:
@@ -80,7 +80,7 @@ const FunSection = () => {
                     ) : (
                       <>
                         <div className="grid grid-cols-[14px_1fr] gap-x-2 gap-y-1">
-                          <span className="text-[var(--crt-accent)]">&gt;</span>
+                          <span className="text-[0.9rem] text-[var(--crt-accent)]">&gt;</span>
                           <div className="flex flex-wrap items-baseline gap-2 text-[1.05rem] max-[480px]:text-[1rem]">
                             <span className="text-[rgba(var(--crt-accent-light-rgb),0.85)] lowercase">
                               {item.label}:
